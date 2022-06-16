@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
     <!--====== Title ======-->
-    <title>Basic - SaaS Landing Page</title>
+    <title>Welcome Lukran Heaven</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,12 +40,6 @@
 </head>
 
 <body>
-<!--[if IE]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
-    your browser</a> to improve your experience and security.</p>
-<![endif]-->
-
-
 <!--====== PRELOADER PART START ======-->
 
 <div class="preloader">
@@ -75,8 +69,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/logo.svg" alt="Logo">
+                        <a class="navbar-brand" href="/login">
+                            <img style="width: 50%; height: auto;" src="assets/images/logo-2.png" alt="Logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -88,29 +82,21 @@
 
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul id="nav" class="navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="page-scroll" href="#home">Home</a>
+
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="#features">¿Que te Ofrecemos?</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="#features">Features</a>
+                                    <a class="page-scroll" href="#about">¿Quienes Somos?</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="#about">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="page-scroll" href="#facts">Why</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="page-scroll" href="#team">Team</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="page-scroll" href="#blog">Blog</a>
+                                    <a class="page-scroll" href="#facts">¿Por qué elegirnos?</a>
                                 </li>
                             </ul>
                         </div> <!-- navbar collapse -->
 
                         <div class="navbar-btn d-none d-sm-inline-block">
-                            <a class="main-btn" data-scroll-nav="0" href="#pricing">Free Trial</a>
+                            <a class="main-btn" data-scroll-nav="0" href="#pricing">Empecemos</a>
                         </div>
                     </nav> <!-- navbar -->
                 </div>
@@ -129,8 +115,7 @@
                             Your SaaS or App Site</h2>
                         <p class="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Lorem ipsum dolor
                             sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
-                        <a href="#" class="main-btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.1s">Get
-                            Started</a>
+                        <a href="#" class="main-btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.1s">Empecemos</a>
                     </div> <!-- header hero content -->
                 </div>
             </div> <!-- row -->
@@ -411,82 +396,6 @@
 
 <!--====== VIDEO COUNTER PART ENDS ======-->
 
-<!--====== TEAM PART START ======-->
-
-<section id="team" class="team-area pt-120">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="section-title text-center pb-30">
-                    <div class="line m-auto"></div>
-                    <h3 class="title"><span>Meet Our</span> Creative Team Members</h3>
-                </div> <!-- section title -->
-            </div>
-        </div> <!-- row -->
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-7 col-sm-8">
-                <div class="single-team text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                    <div class="team-image">
-                        <img src="assets/images/team-1.png" alt="Team">
-                        <div class="social">
-                            <ul>
-                                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-twitter-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-instagram-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h5 class="holder-name"><a href="#">Isabela Moreira</a></h5>
-                        <p class="text">Founder and CEO</p>
-                    </div>
-                </div> <!-- single team -->
-            </div>
-            <div class="col-lg-4 col-md-7 col-sm-8">
-                <div class="single-team text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <div class="team-image">
-                        <img src="assets/images/team-2.png" alt="Team">
-                        <div class="social">
-                            <ul>
-                                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-twitter-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-instagram-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h5 class="holder-name"><a href="#">Elon Musk</a></h5>
-                        <p class="text">Sr. Software Engineer</p>
-                    </div>
-                </div> <!-- single team -->
-            </div>
-            <div class="col-lg-4 col-md-7 col-sm-8">
-                <div class="single-team text-center mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-                    <div class="team-image">
-                        <img src="assets/images/team-3.png" alt="Team">
-                        <div class="social">
-                            <ul>
-                                <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-twitter-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-instagram-filled"></i></a></li>
-                                <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-content">
-                        <h5 class="holder-name"><a href="#">Fiona Smith</a></h5>
-                        <p class="text">Business Development Manager</p>
-                    </div>
-                </div> <!-- single team -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
-
-<!--====== TEAM PART ENDS ======-->
-
 <!--====== TESTIMONIAL PART START ======-->
 
 <section id="testimonial" class="testimonial-area pt-120">
@@ -638,72 +547,6 @@
 
 <!--====== TESTIMONIAL PART ENDS ======-->
 
-<!--====== BLOG PART START ======-->
-
-<section id="blog" class="blog-area pt-120">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="section-title pb-35">
-                    <div class="line"></div>
-                    <h3 class="title"><span>Our Recent</span> Blog Posts</h3>
-                </div> <!-- section title -->
-            </div>
-        </div> <!-- row -->
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-7">
-                <div class="single-blog mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-                    <div class="blog-image">
-                        <img src="assets/images/blog-1.jpg" alt="blog">
-                    </div>
-                    <div class="blog-content">
-                        <ul class="meta">
-                            <li>Posted By: <a href="#">Admin</a></li>
-                            <li>03 June, 2023</li>
-                        </ul>
-                        <p class="text">Lorem ipsuamet conset sadips cing elitr seddiam nonu eirmod tempor invidunt
-                            labore.</p>
-                        <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-            <div class="col-lg-4 col-md-7">
-                <div class="single-blog mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <div class="blog-image">
-                        <img src="assets/images/blog-2.jpg" alt="blog">
-                    </div>
-                    <div class="blog-content">
-                        <ul class="meta">
-                            <li>Posted By: <a href="#">Admin</a></li>
-                            <li>03 June, 2023</li>
-                        </ul>
-                        <p class="text">Lorem ipsuamet conset sadips cing elitr seddiam nonu eirmod tempor invidunt
-                            labore.</p>
-                        <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-            <div class="col-lg-4 col-md-7">
-                <div class="single-blog mt-30 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-                    <div class="blog-image">
-                        <img src="assets/images/blog-3.jpg" alt="blog">
-                    </div>
-                    <div class="blog-content">
-                        <ul class="meta">
-                            <li>Posted By: <a href="#">Admin</a></li>
-                            <li>03 June, 2023</li>
-                        </ul>
-                        <p class="text">Lorem ipsuamet conset sadips cing elitr seddiam nonu eirmod tempor invidunt
-                            labore.</p>
-                        <a class="more" href="#">Learn More <i class="lni-chevron-right"></i></a>
-                    </div>
-                </div> <!-- single blog -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
-
-<!--====== BLOG PART ENDS ======-->
 
 <!--====== FOOTER PART START ======-->
 
@@ -731,7 +574,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="footer-about mt-50 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
                         <a class="logo" href="#">
-                            <img src="assets/images/logo.svg" alt="logo">
+                            <img src="assets/images/logo-2.png" alt="logo">
                         </a>
                         <p class="text">Lorem ipsum dolor sit amet consetetur sadipscing elitr, sederfs diam nonumy
                             eirmod tempor invidunt ut labore et dolore magna aliquyam.</p>
@@ -764,8 +607,6 @@
                             <ul class="link">
                                 <li><a href="#">Home</a></li>
                                 <li><a href="#">Page</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                                <li><a href="#">Blog</a></li>
                                 <li><a href="#">Contact</a></li>
                             </ul>
                         </div> <!-- footer wrapper -->

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
     <!--====== Title ======-->
-    <title>Welcome Lukran Heaven</title>
+    <title>Lukran Heaven</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,12 +109,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="header-hero-content text-center">
-                        <h3 class="header-sub-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Basic -
-                            SaaS Landing Page</h3>
-                        <h2 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">Kickstart
-                            Your SaaS or App Site</h2>
-                        <p class="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Lorem ipsum dolor
-                            sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                        <h3 class="header-sub-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Lukran Heaven</h3>
+                        <h2 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">Para la industria de la Contruccion</h2>
+                        <p class="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Queremos facilitarte los procesos de producción, inventario y administración de tu negocio</p>
                         <a href="#" class="main-btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.1s">Empecemos</a>
                     </div> <!-- header hero content -->
                 </div>

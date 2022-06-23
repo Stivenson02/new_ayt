@@ -96,7 +96,7 @@
                         </div> <!-- navbar collapse -->
 
                         <div class="navbar-btn d-none d-sm-inline-block">
-                            <a class="main-btn" data-scroll-nav="0" href="#pricing">Empecemos</a>
+                            <a class="main-btn" data-scroll-nav="0" href="{{url('register')}}">Empecemos</a>
                         </div>
                     </nav> <!-- navbar -->
                 </div>
@@ -112,7 +112,7 @@
                         <h3 class="header-sub-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">Lukran Heaven</h3>
                         <h2 class="header-title wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.5s">Para la industria de la Contruccion</h2>
                         <p class="text wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.8s">Queremos facilitarte los procesos de producción, inventario y administración de tu negocio</p>
-                        <a href="#" class="main-btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.1s">Empecemos</a>
+                        <a href="{{url('register')}}" class="main-btn wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="1.1s">Empecemos</a>
                     </div> <!-- header hero content -->
                 </div>
             </div> <!-- row -->

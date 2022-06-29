@@ -8,7 +8,7 @@ body {
 }
 #auth #auth-right {
   height: 100%;
-  background: linear-gradient(90deg, #2d499d, #3f5491);
+  background: linear-gradient(90deg, #81C7F5, #6ACEDE);
 }
 #auth #auth-left {
   padding: 5rem 8rem;
@@ -33,4 +33,10 @@ body {
   #auth #auth-left {
     padding: 5rem;
   }
+}
+.btn_guest{
+    background-color: #6ACEDE;
+}
+.btn_guest:hover{
+    background-color: #5EB7C4;
 }

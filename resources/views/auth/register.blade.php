@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div id="auth-left">
-        <h1 class="auth-title">Sign Up</h1>
+        <h1 class="auth-title">Registro</h1>
         <p class="auth-subtitle mb-5">Para empezar es necesario registrarse en nuestro sistema</p>
 
         <!-- Validation Errors -->
@@ -51,9 +51,9 @@
             </div>
 
 
-            <div class="mt-4 ">
+            <div class="mt-4">
                 <div class="flex items-center form-check">
-                    <x-input class="form-check-input btn-outline-success" type="checkbox" name="terms" id="terms"/>
+                    <x-input class="form-check-input btn-outline-success" type="checkbox" name="terms" id="terms" required/>
                     <label class="form-check-label " for="flexCheckDefault">
                             {!! __('I agree to the :terms_of_service and :privacy_policy', [
                                     'terms_of_service' => '<a target="_blank" href="/terms" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
@@ -63,10 +63,10 @@
                     </label>
                 </div>
             </div>
-            <x-button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ __('Register') }}</x-button>
+            <x-button class="btn btn-primary btn-block btn-lg shadow-lg mt-5 btn_guest">Registrarme</x-button>
         </form>
         <div class="text-center mt-5 text-lg fs-4">
-            <p class='text-gray-600'><a href="{{ route('login') }}" class="font-bold">Ya tengo una cuenta</a></p>
+            <p class='text-gray-600'></p>
         </div>
     </div>
 </x-guest-layout>

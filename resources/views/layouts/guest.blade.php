@@ -29,7 +29,7 @@
         <div class="col-lg-5 col-12">
             {{ $slot }}
         </div>
-        <div class="col-lg-7 d-none d-lg-block">
+        <div class="col-lg-7 d-lg-block">
             <div id="auth-right">
 
                 <section class="page-section" id="services">

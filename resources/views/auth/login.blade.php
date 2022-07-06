@@ -12,10 +12,16 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <!-- Email Address -->
+{{--            <div class="form-group position-relative has-icon-left mb-4">--}}
+{{--                <x-input id="email" class="form-control form-control-xl"--}}
+{{--                         placeholder="email"--}}
+{{--                         type="email" name="email" :value="old('email')" required--}}
+{{--                         autofocus/>--}}
+{{--            </div>--}}
             <div class="form-group position-relative has-icon-left mb-4">
-                <x-input id="email" class="form-control form-control-xl"
-                         placeholder="Email"
-                         type="email" name="email" :value="old('email')" required
+                <x-input id="phone" class="form-control form-control-xl"
+                         placeholder="phone"
+                         type="number" name="phone" :value="old('phone')" required
                          autofocus/>
             </div>
 

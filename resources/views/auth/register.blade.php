@@ -27,6 +27,15 @@
                 </div>
             </div>
 
+            <!-- Phone -->
+            <div class="form-group position-relative has-icon-left mb-4">
+                <x-input id="phone" class="form-control form-control-xl" type="number" name="phone" :value="old('phone')"
+                         placeholder="Celular" required/>
+                <div class="form-control-icon">
+                    <i class="bi bi-phone"></i>
+                </div>
+            </div>
+
             <!-- Password -->
             <div class="form-group position-relative has-icon-left mb-4">
                 <x-input id="password" class="form-control form-control-xl"

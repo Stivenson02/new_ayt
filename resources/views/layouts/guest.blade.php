@@ -31,10 +31,8 @@
         </div>
         <div class="col-lg-7 d-lg-block">
             <div id="auth-right">
-
                 <section class="page-section" id="services">
                     <div class="container p-4 p-lg-5">
-
                         @if (Request::path() == "register")
                             <h2 class="text-center mt-0">¿Ya estas Registrado?</h2>
                             <hr class="divider"/>
@@ -71,7 +69,6 @@
                         </div>
                     </div>
                 </section>
-
             </div>
         </div>
     </div>

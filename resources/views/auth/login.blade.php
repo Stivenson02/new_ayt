@@ -11,18 +11,15 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <!-- Email Address -->
-{{--            <div class="form-group position-relative has-icon-left mb-4">--}}
-{{--                <x-input id="email" class="form-control form-control-xl"--}}
-{{--                         placeholder="email"--}}
-{{--                         type="email" name="email" :value="old('email')" required--}}
-{{--                         autofocus/>--}}
-{{--            </div>--}}
+            <!-- Phone Number -->
             <div class="form-group position-relative has-icon-left mb-4">
                 <x-input id="phone" class="form-control form-control-xl"
-                         placeholder="phone"
+                         placeholder="Celular"
                          type="number" name="phone" :value="old('phone')" required
                          autofocus/>
+                <div class="form-control-icon">
+                    <i class="bi bi-phone"></i>
+                </div>
             </div>
 
             <!-- Password -->
@@ -32,6 +29,9 @@
                          type="password"
                          name="password"
                          required autocomplete="current-password"/>
+                <div class="form-control-icon">
+                    <i class="bi bi-shield-lock"></i>
+                </div>
             </div>
 
             <!-- Remember Me -->

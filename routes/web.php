@@ -17,11 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Route::group(['middleware' => ['auth']], function () {
-    Route::view('/dashboard', 'dashboard');
-    Route::view('/profile', 'dashboard');
+    Route::group(['middleware' => ['v_company']], function (){
+        Route::view('/dashboard', 'dashboard');
+        Route::view('/profile', 'dashboard');
+    });
 });
 
 require __DIR__.'/auth.php';

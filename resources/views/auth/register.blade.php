@@ -11,7 +11,7 @@
             <!-- Name -->
             <div class="form-group position-relative has-icon-left mb-4">
                 <x-input id="name" class="form-control form-control-xl" type="text" name="name" :value="old('name')"
-                         placeholder="Nombre"
+                         placeholder="Nombre de Usuario"
                          required autofocus/>
                 <div class="form-control-icon">
                     <i class="bi bi-person"></i>

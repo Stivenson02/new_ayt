@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Company\CompanyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::view('/dashboard', 'dashboard');
         Route::view('/profile', 'dashboard');
     });
+    Route::get('/company',  [CompanyController::class, 'show']);
 });
 
 require __DIR__.'/auth.php';

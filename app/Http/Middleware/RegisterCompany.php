@@ -18,6 +18,7 @@ class RegisterCompany
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
+
         if ($user->companies->count() == 0){
             return redirect('company');
         }

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Company;
+namespace App\Http\Controllers\Foxy\Company;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
+
     public function show()
     {
-        return view('dashboard', [
+        return view('foxy.register.company', [
             'user' => Auth::user()
         ]);
     }

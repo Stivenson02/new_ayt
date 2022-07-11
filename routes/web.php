@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Company\CompanyController;
+use App\Http\Controllers\Foxy\Company\CompanyController;
 use Illuminate\Support\Facades\Route;
 
 /*

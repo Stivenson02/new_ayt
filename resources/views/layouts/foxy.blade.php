@@ -11,17 +11,17 @@
     @include('layouts.partials.styles')
 </head>
 <body>
+{{--
 <nav class="navbar navbar-light">
     <div class="container d-block">
         <a href="index.html"><i class="bi bi-chevron-left"></i></a>
-        <a class="navbar-brand ms-4" href="index.html">
-            <img src="assets/images/logo/logo.svg">
+        <a class="navbar-brand ms-6" href="index.html">
+            <img src="assets/images/logo.png">
         </a>
     </div>
-</nav>
+</nav>--}}
 
 {{ $slot }}
-
 
 <!-- Scripts -->
 @include('layouts.partials.scripts')

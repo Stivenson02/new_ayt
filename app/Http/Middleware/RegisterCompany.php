@@ -19,7 +19,7 @@ class RegisterCompany
     {
         $user = Auth::user();
 
-        if ($user->companies->count() == 0){
+        if ($user->peoples->count() == 0){
             return redirect('company');
         }
         return $next($request);

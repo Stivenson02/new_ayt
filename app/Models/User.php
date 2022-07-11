@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\Company\Company;
+
+use App\Models\Company\CompanyPeople;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -44,8 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function companies()
+    public function peoples()
     {
-        return $this->hasMany(Company::class);
+        return $this->hasMany(CompanyPeople::class);
     }
 }

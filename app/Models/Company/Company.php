@@ -2,8 +2,6 @@
 
 namespace App\Models\Company;
 
-use App\Models\People\Stakeholder;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,13 +9,9 @@ class Company extends Model
 {
     use HasFactory;
 
-    public function user()
+    public function peoples()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(CompanyPeople::class);
     }
 
-    public function stakeholders()
-    {
-        return $this->hasMany(Stakeholder::class);
-    }
 }

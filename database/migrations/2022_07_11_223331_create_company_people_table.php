@@ -13,16 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('company_stakeholders', function (Blueprint $table) {
+        Schema::create('company_people', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
 
-            $table->unsignedBigInteger('stakeholder_id');
+            $table->unsignedBigInteger('stakeholder_id')->nullable();
             $table->foreign('stakeholder_id')->references('id')->on('stakeholders');
 
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->string('status');
+            $table->string('type_user');
             $table->timestamps();
         });
     }
@@ -34,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_stakeholders');
+        Schema::dropIfExists('company_people');
     }
 };

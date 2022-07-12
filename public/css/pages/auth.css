@@ -8,7 +8,7 @@ body {
 }
 #auth #auth-right {
   height: 100%;
-  background: linear-gradient(90deg, #81C7F5, #6ACEDE);
+  background: linear-gradient(90deg, #2d499d, #3f5491);
 }
 #auth #auth-left {
   padding: 5rem 8rem;
@@ -16,15 +16,14 @@ body {
 #auth #auth-left .auth-title {
   font-size: 4rem;
   margin-bottom: 1rem;
-  color: #E67615;
 }
 #auth #auth-left .auth-subtitle {
-  font-size: 1.2rem;
-  line-height: 1.5rem;
+  font-size: 1.7rem;
+  line-height: 2.5rem;
   color: #a8aebb;
 }
 #auth #auth-left .auth-logo {
-  margin-bottom: 4rem;
+  margin-bottom: 7rem;
 }
 #auth #auth-left .auth-logo img {
   height: 2rem;
@@ -33,10 +32,4 @@ body {
   #auth #auth-left {
     padding: 5rem;
   }
-}
-.btn_guest{
-    background-color: #6ACEDE;
-}
-.btn_guest:hover{
-    background-color: #5EB7C4;
 }

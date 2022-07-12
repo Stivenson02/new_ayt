@@ -1,4 +1,7 @@
 <x-foxy-layout>
+
+    <div id="app"></div>
+
     <div class="container">
 
         <div class="card mt-5">

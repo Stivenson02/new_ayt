@@ -12,9 +12,11 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/vue/main.js', 'public/js')
     .sass('resources/sass/bootstrap.scss', 'public/css')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/pages/auth.scss', 'public/css/pages')
+    .vue()
     .postCss('resources/css/app.css', 'public/css/tailwind.css', [
         require('postcss-import'),
         require('tailwindcss'),

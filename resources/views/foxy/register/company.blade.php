@@ -1,6 +1,6 @@
 <x-foxy-layout>
 
-    <div id="app"></div>
+
 
     <div class="container">
 
@@ -24,5 +24,10 @@
             </div>
 
         </div>
+
+<div id="app"></div>
+
+
+
     </div>
 </x-foxy-layout>

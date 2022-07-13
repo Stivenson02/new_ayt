@@ -1,9 +1,5 @@
 <x-foxy-layout>
-
-
-
     <div class="container">
-
         <div class="card mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -20,14 +16,9 @@
                             Para poderte ayudar, necesito que me cuentes más sobre tu compañía</p>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
-<div id="app"></div>
-
-
+        @include('foxy.register.company_form')
 
     </div>
 </x-foxy-layout>

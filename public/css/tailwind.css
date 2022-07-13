@@ -661,6 +661,9 @@ select {
 .col-span-6 {
   grid-column: span 6 / span 6;
 }
+.m-4 {
+  margin: 1rem;
+}
 .m-auto {
   margin: auto;
 }

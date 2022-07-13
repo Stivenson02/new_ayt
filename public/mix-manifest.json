@@ -3,5 +3,6 @@
     "/js/main.js": "/js/main.js",
     "/css/tailwind.css": "/css/tailwind.css",
     "/css/pages/vue.css": "/css/pages/vue.css",
+    "/css/pages/personalized.css": "/css/pages/personalized.css",
     "/css/pages/auth.css": "/css/pages/auth.css"
 }

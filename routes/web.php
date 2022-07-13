@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::view('/profile', 'dashboard');
     });
     Route::get('/company',  [CompanyController::class, 'show']);
+    Route::post('/company',  [CompanyController::class, 'create'])->name('company');
 });
 
 require __DIR__.'/auth.php';

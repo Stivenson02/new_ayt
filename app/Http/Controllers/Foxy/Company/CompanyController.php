@@ -15,4 +15,10 @@ class CompanyController extends Controller
             'user' => Auth::user()
         ]);
     }
+
+    public function create(Request $request)
+    {
+        dd($request->all());
+
+    }
 }

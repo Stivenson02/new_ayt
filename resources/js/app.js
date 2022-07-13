@@ -5,8 +5,14 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
 
-import vue from 'vue';
-import App from './vue/App'
+window.Vue = require('vue');
+
+import { Application } from "stimulus"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
+
+const application = Application.start()
+const context = require.context("./controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
 
 import VueAxios from "vue-axios";
 import axios from 'axios'

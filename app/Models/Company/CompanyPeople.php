@@ -11,6 +11,43 @@ class CompanyPeople extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'company_id',
+        'stakeholder_id',
+        'user_id',
+        'status',
+        'type_user'
+    ];
+
+    public function type_user()
+    {
+        /*
+         * 0 =>  super_admin
+         * 1 =>  creator
+         */
+        return [
+            "super_admin",
+            "admin",
+            "employer",
+        ];
+    }
+
+    public function status()
+    {
+        /*
+        * 0 =>  active
+        * 1 =>  pending
+        * 2 =>  pending
+        * 3 =>  locked
+        */
+        return [
+            "active",
+            "pending",
+            "inactive",
+            "locked"
+        ];
+    }
+
     public function company()
     {
         return $this->belongsTo(Company::class);

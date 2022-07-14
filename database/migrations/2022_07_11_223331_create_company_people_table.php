@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('company_people', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
 

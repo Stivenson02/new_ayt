@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Foxy\Company\CompanyController;
+use App\Http\Controllers\Foxy\Stakeholder\StakeholderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,9 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::get('/company',  [CompanyController::class, 'show']);
     Route::post('/company',  [CompanyController::class, 'create'])->name('company');
+
+    Route::get('/company_complements',  [CompanyController::class, 'company_complements'])->name('show_company_complements');
+    Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_stakeholder');
 });
 
 require __DIR__.'/auth.php';

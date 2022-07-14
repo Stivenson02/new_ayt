@@ -1,3 +1,9 @@
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
 <div class="card mt-5">
     <form method="POST" action="{{ route('company') }}">
         @csrf
@@ -19,10 +25,11 @@
                         <div class="form-group position-relative has-icon-left mb-4">
                             <label for="type_company">¿Tu emprendimiento esta registrado en la DIAN?</label>
                             <select id="type_company" class="form-control form-control-xl" name="type_company"
+                                    placeholder="Tipo de Compañia"
                                     required autofocus>
-                                @foreach($type_company as $key => $type)
-                                    <option value={{$key}}>{{$type}}</option>
-                                @endforeach
+                                <option value="entrepreneurship">NO</option>
+                                <option value="business">SI</option>
+
                             </select>
                             <div class="form-control-icon mt-2">
                                 <i class="bi bi-building"></i>

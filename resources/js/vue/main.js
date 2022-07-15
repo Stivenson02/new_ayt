@@ -1,8 +1,8 @@
+
 import { createApp } from "vue";
+import ListComponent from "./componets/List.vue";
+const app = createApp({})
 
-import App from "./App.vue"
+app.component('ListComponent', ListComponent)
 
-const app = createApp(App)
-
-app.mount("#app")
-
+app.mount('#app')

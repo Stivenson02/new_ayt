@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/vue/main.js', 'public/js')
+    .vue()
     .sass('resources/sass/pages/auth.scss', 'public/css/pages')
     .sass('resources/sass/pages/personalized.scss', 'public/css/pages')
     .sass('resources/sass/pages/vue.scss', 'public/css/pages')
@@ -20,7 +21,7 @@ mix.js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
-    ]).vue();
+    ]);
 
 if (mix.inProduction()) {
     mix.version();

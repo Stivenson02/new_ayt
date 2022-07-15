@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="app">
-    @include('layouts.partials.sidebar')
+
 
     <div id="main" class='layout-navbar'>
         @include('layouts.partials.header')
@@ -23,6 +23,8 @@
 
             <div class="page-heading">
                 <div class="page-title">
+                    <List-Component/>
+                    @include('layouts.partials.sidebar')
                     {{ $header }}
                 </div>
                 {{ $slot }}

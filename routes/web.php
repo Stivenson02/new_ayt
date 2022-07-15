@@ -24,11 +24,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::view('/dashboard', 'dashboard');
         Route::view('/profile', 'dashboard');
     });
-    Route::get('/company',  [CompanyController::class, 'show']);
-    Route::post('/company',  [CompanyController::class, 'create'])->name('company');
+    Route::prefix('register')->group(function (){
+        Route::get('/company',  [CompanyController::class, 'show']);
+        Route::post('/company',  [CompanyController::class, 'create'])->name('register_company');
 
-    Route::get('/company_complements',  [CompanyController::class, 'company_complements'])->name('show_company_complements');
-    Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_stakeholder');
+        Route::get('/company_complements',  [CompanyController::class, 'company_complements'])->name('show_company_complements');
+        Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_stakeholder');
+    });
+
 });
 
 require __DIR__.'/auth.php';

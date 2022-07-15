@@ -19,9 +19,13 @@ class RegisterCompany
     {
         $user = Auth::user();
 
-        if ($user->peoples->count() == 0){
-            return redirect('company');
+        if ($user->processes->count() == 0){
+            return redirect('register/company');
         }
+
+       $process= $user->processes->where("process", "register")->whereNot("status", "complete")->last();
+        dd($process);
+
         return $next($request);
     }
 }

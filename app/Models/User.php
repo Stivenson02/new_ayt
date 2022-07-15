@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use App\Models\Company\CompanyPeople;
+use App\Models\General\Process;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -49,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CompanyPeople::class);
     }
+    public function processes()
+    {
+        return $this->hasMany(Process::class);
+    }
+
 }

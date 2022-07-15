@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Foxy\Company;
 use App\Http\Controllers\Controller;
 use App\Models\Company\Company;
 use App\Models\Company\CompanyPeople;
+use App\Services\GenralServices\ProcessService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Routing\UrlGenerator;
 
 class CompanyController extends Controller
 {
@@ -34,9 +36,8 @@ class CompanyController extends Controller
         $company->type_company = $data["type_company"];
         $company->save();
 
-
         $company_people = new CompanyPeople();
-        $company_people->slug = slug_token($data["name"]);
+        $company_people->slug = slug_token($company->id . $data["name"]);
         $company_people->company_id = $company->id;
         $company_people->user_id = Auth::user()->id;
         $company_people->status = $company_people->status()[0];
@@ -49,7 +50,9 @@ class CompanyController extends Controller
             $view = 'show_stakeholder';
         }
 
-        return redirect()->route($view, ['company' => $company_people->slug]);
+        $process=ProcessService::registerProcess('register', $company_people->user_id, null, 'in_process', 0, url()->current(), $view);
+
+        return redirect()->route($view, ['company' => $company_people->slug, 'process'=>$process->slug]);
     }
 
     public function company_complements(Request $request)

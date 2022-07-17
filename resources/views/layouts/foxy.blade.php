@@ -23,7 +23,6 @@
         </a>
     </div>
 </nav>--}}
-
 {{ $slot }}
 
 <!-- Scripts -->

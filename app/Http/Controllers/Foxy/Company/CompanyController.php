@@ -27,6 +27,8 @@ class CompanyController extends Controller
 
     public function create(Request $request)
     {
+
+        #VALIDAR QUE NO TENGA PROCESOS PENDIENTES CON UN  MIDDLEWARE COMO IDEA
         $data = $request->all();
 
         $company = new Company();

@@ -23,7 +23,6 @@
 
             <div class="page-heading">
                 <div class="page-title">
-                    <List-Component/>
                     @include('layouts.partials.sidebar')
                     {{ $header }}
                 </div>

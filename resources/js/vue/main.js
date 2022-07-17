@@ -1,7 +1,8 @@
 
 import { createApp } from "vue";
-import ListComponent from "./componets/List.vue";
 const app = createApp({})
+
+import ListComponent from "./componets/List.vue";
 
 app.component('ListComponent', ListComponent)
 

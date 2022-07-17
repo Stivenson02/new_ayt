@@ -5,7 +5,7 @@
 </script>
 
 <div class="card mt-5">
-    <form method="POST" action="{{ route('company') }}">
+    <form method="POST" ">
         @csrf
         <div class="row m-4">
             <div class="col col-lg-4">

@@ -11,6 +11,8 @@ class StakeholderController extends Controller
 {
     public function show(Request $request)
     {
-        dd($request->all());
+        return view('foxy.register.stakeholder', [
+            'user' => Auth::user()
+        ]);
     }
 }

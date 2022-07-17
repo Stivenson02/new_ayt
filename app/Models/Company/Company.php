@@ -25,7 +25,8 @@ class Company extends Model
         */
         return [
             "entrepreneurship",
-            "business"
+            "business",
+            "company"
         ];
     }
 

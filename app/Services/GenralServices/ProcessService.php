@@ -9,13 +9,13 @@ use App\Models\General\Process;
  */
 class ProcessService
 {
-    public static function registerProcess($process, $user, $slug, $status = null, $type_url = null, $last_url = null, $next_url = null, $percentage = null, $total_steps = null, $last_step = null): Process
+    public static function registerProcess($name_process, $user, $slug, $status = null, $type_url = null, $last_url = null, $next_url = null, $percentage = null, $total_steps = null, $last_step = null): Process
     {
         if ($status == null) {
             $status = "incomplete";
         }
         if ($slug == null) {
-            $slug = slug_token($user . $process);
+            $slug = slug_token($user . $name_process);
         }
 
         $process = new Process();
@@ -23,7 +23,7 @@ class ProcessService
         return Process::updateOrCreate(
             [
                 'user_id' => $user,
-                'process' => $process,
+                'process' => $name_process,
                 'slug' => $slug,
             ],
             [

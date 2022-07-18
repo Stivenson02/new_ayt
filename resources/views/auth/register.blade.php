@@ -72,7 +72,7 @@
                     </label>
                 </div>
             </div>
-            <x-button class="btn btn-primary btn-block btn-lg shadow-lg mt-5 btn_guest">Registrarme</x-button>
+            <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5 btn_guest">Registrarme</button>
         </form>
         <div class="text-center mt-5 text-lg fs-4">
             <p class='text-gray-600'></p>

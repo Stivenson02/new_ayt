@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pages/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/personalized.css') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -52,21 +53,21 @@
                                 <div class="mt-5">
                                     <div class="mb-2"><i class="bi-clipboard fs-1 text-primary"></i></div>
                                     <h3 class="h4 mb-2">Seguimiento</h3>
-                                    <p class="text-muted mb-0">Que no se te olvide y pierdas la información</p>
+                                    <p class="text-black-50 mb-0">Que no se te olvide y pierdas la información</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 text-center">
                                 <div class="mt-5">
                                     <div class="mb-2"><i class="bi-bell fs-1 text-primary"></i></div>
                                     <h3 class="h4 mb-2">Notificación</h3>
-                                    <p class="text-muted mb-0">Mantén a tu equipo informado, de todo lo que pasa</p>
+                                    <p class="text-black-50 mb-0">Mantén a tu equipo informado, de todo lo que pasa</p>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 text-center">
                                 <div class="mt-5">
                                     <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
                                     <h3 class="h4 mb-2">Crecimiento</h3>
-                                    <p class="text-muted mb-0">Crezcamos sanamente y con todo bajo control</p>
+                                    <p class="text-black-50 mb-0">Crezcamos sanamente y con todo bajo control</p>
                                 </div>
                             </div>
                         </div>

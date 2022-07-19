@@ -14,9 +14,6 @@ const context = require.context("./controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 
 
-import VueAxios from "vue-axios";
-import axios from 'axios'
-
 
 
 

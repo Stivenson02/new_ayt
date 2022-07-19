@@ -12,6 +12,7 @@ class CompanyPeople extends Model
     use HasFactory;
 
     protected $fillable = [
+        'slug',
         'company_id',
         'stakeholder_id',
         'user_id',

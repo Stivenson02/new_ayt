@@ -17,7 +17,7 @@
                     </div>
                     <div class="col col-sm-12">
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <label for="type_company">¿Tu emprendimiento esta registrado en la DIAN?</label>
+                            <label for="type_company">¿Tu emprendimiento tiene Camara de Comercio?</label>
                             <select id="type_company" class="form-control form-control-xl" name="type_company"
                                     required autofocus>
                                 @foreach($type_company as $key => $type)

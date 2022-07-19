@@ -28,7 +28,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/company',  [CompanyController::class, 'show']);
         Route::post('/company',  [CompanyController::class, 'create'])->name('register_company');
 
-        Route::get('/company_complements',  [CompanyController::class, 'company_complements'])->name('show_company_complements');
+        Route::get('/company_complements',  [CompanyController::class, 'edit'])->name('show_company_complements');
+        Route::post('/company_complements/{people}',  [CompanyController::class, 'update'])->name('register_company_complements');
+
         Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_stakeholder');
     });
 

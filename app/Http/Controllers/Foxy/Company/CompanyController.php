@@ -20,7 +20,6 @@ class CompanyController extends Controller
         $company->type_company()[0];
         $type_company = [$company->type_company()[0] => "NO", $company->type_company()[1] => "SI"];
         return view('foxy.register.company', [
-            'user' => Auth::user(),
             'type_company' => $type_company
         ]);
     }
@@ -57,8 +56,30 @@ class CompanyController extends Controller
         return redirect()->route($view, ['company' => $company_people->slug, 'process'=>$process->slug]);
     }
 
-    public function company_complements(Request $request)
+    public function edit(Request $request)
     {
-        dd($request->all());
+        $data= $request->all();
+        $company_people=CompanyPeople::firstWhere('slug', $data["company"]);
+
+
+        return view('foxy.register.company_options', [
+            'company' => $company_people->company,
+            'people' => $company_people,
+            'process' => $data['process']
+        ]);
+    }
+
+
+    public function update ($people, Request $request)
+    {
+        $data= $request->all();
+        dd($data);
+        $company_people=CompanyPeople::firstWhere('slug', $data["company"]);
+
+
+        return view('foxy.register.company_options', [
+            'company' => $company_people->company,
+            'process' => $data['process']
+        ]);
     }
 }

@@ -34,5 +34,10 @@ class Company extends Model
     {
         return $this->hasMany(CompanyPeople::class);
     }
+    public function files()
+    {
+        return $this->hasMany(CompanyFile::class);
+    }
+
 
 }

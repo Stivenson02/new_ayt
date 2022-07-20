@@ -45,7 +45,7 @@
                 <div class="form-group position-relative has-icon-left mb-2">
                     <label for="type_company">Logo</label>
                     <x-input id="img_logo" class="form-control form-control-xl" type="file" name="img_logo"
-                             accept="image/*"
+                             accept="image/png, image/jpg, image/jpeg"
                              required autofocus/>
 
                 </div>

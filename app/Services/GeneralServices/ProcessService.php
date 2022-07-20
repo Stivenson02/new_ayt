@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\GenralServices;
+namespace App\Services\GeneralServices;
 
 use App\Models\General\Process;
 

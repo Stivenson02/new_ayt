@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Foxy\Company;
 use App\Http\Controllers\Controller;
 use App\Models\Company\Company;
 use App\Models\Company\CompanyPeople;
-use App\Services\GenralServices\ProcessService;
+use App\Services\GeneralServices\ProcessService;
+use App\Services\GeneralServices\StorageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
-use Illuminate\Routing\UrlGenerator;
 
 class CompanyController extends Controller
 {
@@ -29,8 +28,10 @@ class CompanyController extends Controller
 
         #VALIDAR QUE NO TENGA PROCESOS PENDIENTES CON UN  MIDDLEWARE COMO IDEA
         $data = $request->all();
+        $user = Auth::user();
 
         $company = new Company();
+        $company->slug = slug_token($company->id . $data["name"]);
         $company->name = $data["name"];
         $company->bussines_name = $data["name"];
         $company->description = $data["description"];
@@ -38,9 +39,9 @@ class CompanyController extends Controller
         $company->save();
 
         $company_people = new CompanyPeople();
-        $company_people->slug = slug_token($company->id . $data["name"]);
+        $company_people->slug = slug_token($user->id . $company->id . $data["name"]);
         $company_people->company_id = $company->id;
-        $company_people->user_id = Auth::user()->id;
+        $company_people->user_id = $user->id;
         $company_people->status = $company_people->status()[0];
         $company_people->type_user = $company_people->type_user()[0];
         $company_people->save();
@@ -51,15 +52,15 @@ class CompanyController extends Controller
             $view = 'show_stakeholder';
         }
 
-        $process=ProcessService::registerProcess('register', $company_people->user_id, null, 'in_process', 0, url()->current(), $view);
+        $process = ProcessService::registerProcess('register', $company_people->user_id, null, 'in_process', 0, url()->current(), $view);
 
-        return redirect()->route($view, ['company' => $company_people->slug, 'process'=>$process->slug]);
+        return redirect()->route($view, ['company' => $company_people->slug, 'process' => $process->slug]);
     }
 
     public function edit(Request $request)
     {
-        $data= $request->all();
-        $company_people=CompanyPeople::firstWhere('slug', $data["company"]);
+        $data = $request->all();
+        $company_people = CompanyPeople::firstWhere('slug', $data["company"]);
 
 
         return view('foxy.register.company_options', [
@@ -70,12 +71,14 @@ class CompanyController extends Controller
     }
 
 
-    public function update ($people, Request $request)
+    public function update($people, Request $request)
     {
-        $data= $request->all();
-        dd($data);
-        $company_people=CompanyPeople::firstWhere('slug', $data["company"]);
-
+        #TODO Agregar validaciones de error de form y mostrar errores
+        $data = $request->all();
+        $company_people = CompanyPeople::firstWhere('slug', $people);
+        if ($request->hasFile('img_logo')) {
+            $img = StorageService::created($request->img_logo, $company_people->company->slug);
+        }
 
         return view('foxy.register.company_options', [
             'company' => $company_people->company,

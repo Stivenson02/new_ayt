@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Foxy\Company\CompanyController;
+use App\Http\Controllers\Foxy\General\GeneralController;
 use App\Http\Controllers\Foxy\Stakeholder\StakeholderController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +34,9 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_stakeholder');
     });
-
+    Route::prefix('foxy')->group(function (){
+        Route::get('continue',  [GeneralController::class, 'show_continue'])->name('show_foxy_continue');
+    });
 });
 
 require __DIR__.'/auth.php';

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('process');
             $table->string('status');
+            $table->string('table')->nullable();
+            $table->string('slug_table')->nullable();
             $table->integer('percentage')->nullable();
             $table->integer('total_steps')->nullable();
             $table->integer('last_step')->nullable();

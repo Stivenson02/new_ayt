@@ -49,6 +49,11 @@ class CompanyPeople extends Model
         ];
     }
 
+    public static function getTableName()
+    {
+        return with(new static)->getTable();
+    }
+
     public function company()
     {
         return $this->belongsTo(Company::class);

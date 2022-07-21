@@ -52,7 +52,18 @@ class CompanyController extends Controller
             $view = 'show_stakeholder';
         }
 
-        $process = ProcessService::registerProcess('register', $company_people->user_id, null, 'in_process', 0, url()->current(), $view);
+        $register_process=[
+            'user_id'=>$company_people->user_id,
+            'process'=>'register',
+            'table'=>CompanyPeople::getTableName(),
+            'slug_table'=>$company_people->slug,
+            'status'=>'in_process',
+            'type_url'=>0,
+            'last_url'=>url()->current(),
+            'next_url'=>$view,
+        ];
+
+        $process = ProcessService::registerProcess($register_process);
 
         return redirect()->route($view, ['company' => $company_people->slug, 'process' => $process->slug]);
     }

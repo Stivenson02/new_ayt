@@ -1,8 +1,8 @@
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
+
+
+@if(Session::has('message'))
+    <p class="alert alert-info">{{ Session::get('message') }}</p>
+@endif
 
 <div class="card mt-5">
     <form method="post" action="{{ route('register_company_complements', ['people' => $people->slug]) }}" enctype="multipart/form-data">

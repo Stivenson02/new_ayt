@@ -20,7 +20,9 @@ class Process extends Model
         'type_url',
         'last_url',
         'next_url',
-        'user_id'
+        'user_id',
+        'table',
+        'slug_table',
     ];
 
     public function type_url()

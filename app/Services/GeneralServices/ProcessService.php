@@ -9,31 +9,34 @@ use App\Models\General\Process;
  */
 class ProcessService
 {
-    public static function registerProcess($name_process, $user, $slug, $status = null, $type_url = null, $last_url = null, $next_url = null, $percentage = null, $total_steps = null, $last_step = null): Process
+    public static function registerProcess($register_process): Process
     {
-        if ($status == null) {
-            $status = "incomplete";
+        if (!array_key_exists('status', $register_process)) {
+            $register_process['status'] = "incomplete";
         }
-        if ($slug == null) {
-            $slug = slug_token($user . $name_process);
+        if (!array_key_exists('slug', $register_process)) {
+            $register_process['slug'] = slug_token( $register_process['user_id'] .  $register_process['process']);
         }
+
 
         $process = new Process();
 
         return Process::updateOrCreate(
             [
-                'user_id' => $user,
-                'process' => $name_process,
-                'slug' => $slug,
+                'user_id' => $register_process['user_id'],
+                'process' => $register_process['process'],
+                'slug' => $register_process['slug'],
             ],
             [
-                'status' => $status,
-                'percentage' => $percentage,
-                'total_steps' => $total_steps,
-                'last_step' => $last_step,
-                'type_url' => $process->type_url()[$type_url],
-                'last_url' => $last_url,
-                'next_url' => $next_url
+                'status' => array_key_exists('status', $register_process) ? $register_process['status'] : null,
+                'percentage' => array_key_exists('percentage', $register_process) ? $register_process['percentage'] : null,
+                'total_steps' => array_key_exists('total_steps', $register_process) ? $register_process['total_steps'] : null,
+                'last_step' => array_key_exists('last_step', $register_process) ? $register_process['last_step'] : null,
+                'type_url' => $process->type_url()[$register_process['type_url']],
+                'last_url' => array_key_exists('last_url', $register_process) ? $register_process['last_url'] : null,
+                'next_url' => array_key_exists('next_url', $register_process) ? $register_process['next_url'] : null,
+                'table' => array_key_exists('table', $register_process) ? $register_process['table'] : null,
+                'slug_table' => array_key_exists('slug_table', $register_process) ? $register_process['slug_table'] : null,
             ]
         );
     }

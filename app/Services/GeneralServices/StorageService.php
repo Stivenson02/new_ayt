@@ -2,6 +2,7 @@
 
 namespace App\Services\GeneralServices;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -18,7 +19,7 @@ class StorageService
         if ($size <= 4000000){
             $path = Storage::disk('public')->put($folder, $image_resize);
         }else{
-            return "IMG MUY PESADA";
+            Session::flash('message', 'This is a message!');
         }
 
         /*

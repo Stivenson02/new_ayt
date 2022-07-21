@@ -23,9 +23,8 @@ class RegisterCompany
             return redirect('register/company');
         }
 
-       $process= $user->processes->where("process", "register");
-        if ($process->where("status", "==","complete")->count() == 0){
-            return redirect()->route($process->last()["next_url"]);
+        if ($user->processes->where("process", "register")->where("status", "==","complete")->count() == 0){
+            return redirect()->route('show_foxy_continue');
         }
         return $next($request);
     }

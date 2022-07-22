@@ -24,7 +24,7 @@ class RegisterCompany
         }
 
         if ($user->processes->where("process", "register")->where("status", "==","complete")->count() == 0){
-            return redirect()->route('show_foxy_continue');
+            return redirect()->route('show_register_continue');
         }
         return $next($request);
     }

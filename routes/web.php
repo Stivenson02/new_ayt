@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_stakeholder');
     });
     Route::prefix('foxy')->group(function (){
-        Route::get('continue',  [GeneralController::class, 'show_continue'])->name('show_foxy_continue');
+        Route::get('continue',  [GeneralController::class, 'show_register_continue'])->name('show_register_continue');
     });
 });
 

@@ -12,16 +12,25 @@ use Illuminate\Support\Facades\DB;
 class GeneralController extends Controller
 {
 
-    public function show_continue()
+    public function show_register_continue()
     {
         $user = Auth::user();
-        $processes=$user->processes->where("process", "register");
+        $processes = $user->processes->where("process", "register");
+        $in_process = [];
+        foreach ($processes as $process) {
+            if ($process['table'] == CompanyPeople::getTableName()) {
+                $company = CompanyPeople::where('slug', $process['slug_table'])->first();
+                $in_process['company'.$company['id']]['company_people'] = $company;
+                $in_process['company'.$company['id']]['company'] = $company->company;
+            }
+            array_push($in_process, $process['company']);
+        }
+        dd($in_process);
 
-        return view('foxy.general.show_continue', [
-            'processes' => $processes
+        return view('foxy.general.show_register_continue', [
+            'processes' => $in_process
         ]);
 
     }
-
 
 }

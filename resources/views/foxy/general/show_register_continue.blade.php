@@ -20,7 +20,27 @@
             </div>
         </div>
         <div class="card mt-5">
-            PROCESOS
+            @foreach($processes as $process)
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="card-header">
+                            <h4 class="card-title">Proceso</h4>
+                        </div>
+                        <div class="card-body">
+                        <p></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="card-header">
+                            <h4 class="card-title">Continua tus Procesos</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Tienes algún proceso sin terminar, por favor da clic en <b>CONTINUAR</b> y finaliza tus
+                                procesos</p>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </x-foxy-layout>

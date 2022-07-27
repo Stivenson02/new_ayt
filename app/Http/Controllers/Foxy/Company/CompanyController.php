@@ -9,6 +9,7 @@ use App\Services\GeneralServices\ProcessService;
 use App\Services\GeneralServices\StorageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CompanyController extends Controller
 {
@@ -52,15 +53,15 @@ class CompanyController extends Controller
             $view = 'show_stakeholder';
         }
 
-        $register_process=[
-            'user_id'=>$company_people->user_id,
-            'process'=>'register',
-            'table'=>CompanyPeople::getTableName(),
-            'slug_table'=>$company_people->slug,
-            'status'=>'in_process',
-            'type_url'=>0,
-            'last_url'=>url()->current(),
-            'next_url'=>$view,
+        $register_process = [
+            'user_id' => $company_people->user_id,
+            'process' => 'register',
+            'table' => CompanyPeople::getTableName(),
+            'slug_table' => $company_people->slug,
+            'status' => 'in_process',
+            'type_url' => 0,
+            'last_url' => url()->current(),
+            'next_url' => $view,
         ];
 
         $process = ProcessService::registerProcess($register_process);
@@ -84,12 +85,26 @@ class CompanyController extends Controller
 
     public function update($people, Request $request)
     {
-        #TODO Agregar validaciones de error de form y mostrar errores
         $data = $request->all();
+        if ($data['document']) {
+            $validated = $request->validate([
+                'document' => 'max:255',
+                'verification' => 'required|max:1',
+            ]);
+        }
+
         $company_people = CompanyPeople::firstWhere('slug', $people);
         if ($request->hasFile('img_logo')) {
             $img = StorageService::created($request->img_logo, $company_people->company->slug);
+            if ($img) {
+                dd($img);
+            }
         }
+
+        if (Session::has('message')) {
+            return redirect()->back();
+        }
+        dd(0);
 
         return view('foxy.register.company_options', [
             'company' => $company_people->company,

@@ -1,7 +1,17 @@
 
 
 @if(Session::has('message'))
-    <p class="alert alert-info">{{ Session::get('message') }}</p>
+    <p class="alert alert-danger">{{ Session::get('message') }}</p>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
 <div class="card mt-5">
@@ -17,11 +27,10 @@
             </div>
             <div class="col col-sm-3">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <label for="type_company">RUT</label>
+                    <label for="document">RUT</label>
                     <x-input id="document" class="form-control form-control-xl" type="number" name="document"
                              :value="old('document')"
-                             autocomplete="off"
-                             required autofocus/>
+                             autocomplete="off"/>
                     <div class="form-control-icon mt-2">
                         <i class="bi bi-book"></i>
                     </div>
@@ -33,12 +42,11 @@
             </div>
             <div class="col col-sm-2">
                 <div class="form-group position-relative has-icon-left mb-2">
-                    <label for="type_company"></label>
+                    <label for="verification"></label>
                     <x-input id="verification" class="form-control form-control-xl" type="number" name="verification"
                              :value="old('verification')"
                              autocomplete="off"
-                             maxlength="1"
-                             required autofocus/>
+                             maxlength="1"/>
                 </div>
             </div>
             <div class="col col-sm-3">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Foxy\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company\Company;
+use App\Models\Company\CompanyFile;
 use App\Models\Company\CompanyPeople;
 use App\Services\GeneralServices\ProcessService;
 use App\Services\GeneralServices\StorageService;
@@ -47,11 +48,6 @@ class CompanyController extends Controller
         $company_people->type_user = $company_people->type_user()[0];
         $company_people->save();
 
-        if ($data["type_company"] == $company->type_company()[1]) {
-            $view = 'show_company_complements';
-        } else {
-            $view = 'show_stakeholder';
-        }
 
         $register_process = [
             'user_id' => $company_people->user_id,
@@ -61,12 +57,12 @@ class CompanyController extends Controller
             'status' => 'in_process',
             'type_url' => 0,
             'last_url' => url()->current(),
-            'next_url' => $view,
+            'next_url' => 'show_company_complements',
         ];
 
         $process = ProcessService::registerProcess($register_process);
 
-        return redirect()->route($view, ['company' => $company_people->slug, 'process' => $process->slug]);
+        return redirect()->route('show_company_complements', ['company' => $company_people->slug, 'process' => $process->slug]);
     }
 
     public function edit(Request $request)
@@ -85,30 +81,52 @@ class CompanyController extends Controller
 
     public function update($people, Request $request)
     {
+        $request->validate([
+            'img_logo' => 'required'
+        ]);
         $data = $request->all();
         if ($data['document']) {
-            $validated = $request->validate([
+            $request->validate([
                 'document' => 'max:255',
                 'verification' => 'required|max:1',
             ]);
         }
 
         $company_people = CompanyPeople::firstWhere('slug', $people);
-        if ($request->hasFile('img_logo')) {
-            $img = StorageService::created($request->img_logo, $company_people->company->slug);
-            if ($img) {
-                dd($img);
-            }
+        $company = $company_people->company;
+
+        if (!$company->files->where('type_file')->count() == 0) {
+            StorageService::delete($company->slug . '/' . $company->files->where('type_file')->first()->file);
         }
 
-        if (Session::has('message')) {
-            return redirect()->back();
-        }
-        dd(0);
+        $img = StorageService::created($request->img_logo, $company->slug);
 
-        return view('foxy.register.company_options', [
-            'company' => $company_people->company,
-            'process' => $data['process']
-        ]);
+        CompanyFile::updateOrCreate(
+            [
+                'company_id' => $company->id,
+                'type_file' => 'company_logo',
+            ],
+            [
+                'file' => $img['image_name'],
+                'file_path' => $img['image'],
+                'file_extension' => 'IMG'
+            ]
+        );
+
+        $register_process = [
+            'user_id' => $company_people->user_id,
+            'process' => 'register',
+            'table' => CompanyPeople::getTableName(),
+            'slug_table' => $company_people->slug,
+            'status' => 'in_process',
+            'type_url' => 0,
+            'last_url' => url()->current(),
+            'next_url' => 'show_registry_stakeholder',
+        ];
+
+        $process = ProcessService::registerProcess($register_process);
+
+        return redirect()->route('show_registry_stakeholder', ['company' => $company_people->slug, 'process' => $process->slug]);
+
     }
 }

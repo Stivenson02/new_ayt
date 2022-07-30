@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
+
 /**
  * Class StorageService.
  */
@@ -15,30 +16,32 @@ class StorageService
     public static function created($file, $folder)
     {
         $image = $file;
-        $input['imagename'] = time().'.'.$image->extension();
+        $input['imagename'] = time() . '.' . $image->extension();
 
-        $filePath = public_path('/thumbnails');
+        $save_path = 'thumbnails/' . $folder;
+        if (!file_exists($save_path)) {
+            mkdir($save_path, 0755, true);
+        }
+
+        $filePath = public_path($save_path);
         $img = Image::make($image->path());
-        $img->resize(110, 110, function ($const) {
+        $img->resize(600, 300, function ($const) {
             $const->aspectRatio();
         });
 
-        $img->save($filePath . '/' .$folder.'/'. $input['imagename'],100);
-        dd($image->path());
+        $img->save($filePath . '/' . $input['imagename'], 100);
 
-        /*save($filePath . '/' . $input['imagename']);*/
+        return ([
+            'image' => $save_path . '/' . $input['imagename'],
+            'image_name' => $input['imagename'],
+            'image_folder' => $folder,
+        ]);
 
-        $filePath = public_path('/images');
-        $image->move($filePath, $input['imagename']);
+    }
 
-        $image_resize = Image::make($file->getRealPath());
-        $size = ($image_resize->filesize());
-        if ($size <= 4000000) {
-            return $path = Storage::disk('public')->put($folder, $file);;
-        } else {
-            Session::flash('message', 'La imagen es muy pesada, cargue otra imagen');
-        }
-
+    public static function delete($image_path)
+    {
+        unlink('thumbnails/' . $image_path);
     }
 
 }

@@ -12,7 +12,7 @@
                         <h4 class="card-title">Completa la Informacion </h4>
                     </div>
                     <div class="card-body">
-                        <p>Estos campos son opcionales, puedes dar clic en <b>CONTINUAR</b> si deseas, o completa la informacion y continua con tu registro.
+                        <p>Carga tu logo y completa los campos del RUT, <b>si no tienes RUT no te preocupes,</b> puedes dar clic en <b>CONTINUAR.</b>
                         Usaremos estos datos para imprimir y mostrar tus facturas</p>
                     </div>
                 </div>

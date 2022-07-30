@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/company_complements',  [CompanyController::class, 'edit'])->name('show_company_complements');
         Route::post('/company_complements/{people}',  [CompanyController::class, 'update'])->name('register_company_complements');
 
-        Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_stakeholder');
+        Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_registry_stakeholder');
     });
     Route::prefix('foxy')->group(function (){
         Route::get('continue',  [GeneralController::class, 'show_register_continue'])->name('show_register_continue');

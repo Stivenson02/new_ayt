@@ -1,18 +1,6 @@
 
 
-@if(Session::has('message'))
-    <p class="alert alert-danger">{{ Session::get('message') }}</p>
-@endif
-
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@include('layouts.partials.errors')
 
 <div class="card mt-5">
     <form method="post" action="{{ route('register_company_complements', ['people' => $people->slug]) }}" enctype="multipart/form-data">
@@ -54,7 +42,7 @@
                     <label for="type_company">Logo</label>
                     <x-input id="img_logo" class="form-control form-control-xl" type="file" name="img_logo"
                              accept="image/png, image/jpg, image/jpeg"
-                             required autofocus/>
+                              autofocus/>
 
                 </div>
             </div>

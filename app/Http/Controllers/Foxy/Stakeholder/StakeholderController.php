@@ -18,8 +18,8 @@ class StakeholderController extends Controller
     public function show(Request $request)
     {
         $data = $request->all();
-        $company_people = CompanyPeople::firstWhere('slug', $data['company']);
 
+        $company_people = CompanyPeople::firstWhere('slug', $data['company']);
         $cities = City::OfCities('Colombia')->get();
         $stakeholder = new Stakeholder();
 
@@ -86,7 +86,18 @@ class StakeholderController extends Controller
 
     public function show_collaborator(Request $request)
     {
-        dd($request->all());
+        $data= $request->all();
+
+        $company_people = CompanyPeople::firstWhere('slug', $data['company']);
+        $cities = City::OfCities('Colombia')->get();
+        $stakeholder = new Stakeholder();
+
+        return view('foxy.register.collaborator', [
+            'people' => $company_people,
+            'process' => $data['process'],
+            'cities' => $cities,
+            'type_documents' => $stakeholder->type_document(),
+        ]);
     }
 
 }

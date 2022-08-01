@@ -25,11 +25,12 @@ class CompanyPeople extends Model
         /*
          * 0 =>  super_admin
          * 1 =>  creator
+         * 3 =>  creator
          */
         return [
             "super_admin",
             "admin",
-            "employer",
+            "collaborater",
         ];
     }
 

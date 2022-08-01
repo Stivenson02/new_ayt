@@ -94,7 +94,7 @@
                             <select id="city" class="form-control form-control-xl" name="city"
                                      autofocus>
                                 @foreach($cities as $key => $type)
-                                    <option value={{$type['id']}}>{{$type['full_name']}}</option>
+                                    <option value={{$key}}>{{$type['full_name']}}</option>
                                 @endforeach
                             </select>
                             <div class="form-control-icon mt-2">

@@ -2,6 +2,7 @@
 
 namespace App\Models\Company;
 
+use App\Models\People\Job;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +38,10 @@ class Company extends Model
     public function files()
     {
         return $this->hasMany(CompanyFile::class);
+    }
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
     }
 
 

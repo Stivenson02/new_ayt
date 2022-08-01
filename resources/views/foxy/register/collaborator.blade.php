@@ -9,15 +9,16 @@
                 </div>
                 <div class="col-sm-10">
                     <div class="card-header">
-                        <h4 class="card-title">Cuéntanos un poco más de ti</h4>
+                        <h4 class="card-title">Tus Colaboradores</h4>
                     </div>
                     <div class="card-body">
-                        <p>Me gustaría conocerte un poco más, y en el camino tendremos la oportunidad de hacerlo, por el momento; completa la siguiente información para terminar el registro de perfil </p>
+                        <p>Resgistra a tu equipo de trabajo e invitalos a ser parte de <b>Lukran Heaven.</b></p>
+                        <p>Siempre tendras esta opcion a tu dispocicion, puedes dar clic en continuar y realizar el registro despues </p>
                     </div>
                 </div>
             </div>
         </div>
-        @include('foxy.register.stakeholder_form')
+        @include('foxy.register.collaborator_form')
 
     </div>
 </x-foxy-layout>

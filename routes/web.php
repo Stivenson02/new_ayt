@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/company_complements/{people}',  [CompanyController::class, 'update'])->name('register_company_complements');
 
         Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_registry_stakeholder');
+        Route::post('/stakeholder/{people}',  [StakeholderController::class, 'create'])->name('register_stakeholder');
+
+        Route::get('/collaborators',  [StakeholderController::class, 'show_collaborator'])->name('show_registry_collaborator');
     });
     Route::prefix('foxy')->group(function (){
         Route::get('continue',  [GeneralController::class, 'show_register_continue'])->name('show_register_continue');

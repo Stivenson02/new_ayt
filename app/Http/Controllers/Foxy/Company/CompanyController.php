@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Company\Company;
 use App\Models\Company\CompanyFile;
 use App\Models\Company\CompanyPeople;
+use App\Models\People\Job;
 use App\Services\GeneralServices\ProcessService;
 use App\Services\GeneralServices\StorageService;
 use Illuminate\Http\Request;
@@ -27,8 +28,6 @@ class CompanyController extends Controller
 
     public function create(Request $request)
     {
-
-        #VALIDAR QUE NO TENGA PROCESOS PENDIENTES CON UN  MIDDLEWARE COMO IDEA
         $data = $request->all();
         $user = Auth::user();
 
@@ -47,6 +46,11 @@ class CompanyController extends Controller
         $company_people->status = $company_people->status()[0];
         $company_people->type_user = $company_people->type_user()[0];
         $company_people->save();
+
+        $job= new Job();
+        $job->name = 'Administrador';
+        $job->company_id = $company->id;
+        $job->save();
 
 
         $register_process = [

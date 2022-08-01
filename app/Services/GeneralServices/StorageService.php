@@ -2,10 +2,11 @@
 
 namespace App\Services\GeneralServices;
 
-use Illuminate\Http\File;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\File;
 
 
 /**
@@ -25,7 +26,7 @@ class StorageService
 
         $filePath = public_path($save_path);
         $img = Image::make($image->path());
-        $img->resize(600, 300, function ($const) {
+        $img->resize(600, 400, function ($const) {
             $const->aspectRatio();
         });
 
@@ -41,7 +42,9 @@ class StorageService
 
     public static function delete($image_path)
     {
-        unlink('thumbnails/' . $image_path);
+        if (File::exists('thumbnails/' . $image_path)) {
+            unlink('thumbnails/' . $image_path);
+        }
     }
 
 }

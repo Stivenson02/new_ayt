@@ -1,10 +1,6 @@
-
-
 @include('layouts.partials.errors')
-
 <div class="card mt-5">
     <form method="post" action="{{ route('register_company_complements', ['people' => $people->slug]) }}" enctype="multipart/form-data">
-
         @csrf
         <div class="row mx-4 mt-2">
             <div class="col col-sm-3">

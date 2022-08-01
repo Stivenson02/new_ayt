@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('stakeholders', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('phone')->unique();
             $table->string('first_name');
             $table->string('second_name')->nullable();
@@ -27,9 +28,6 @@ return new class extends Migration
 
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');
-
-            $table->unsignedBigInteger('job_id');
-            $table->foreign('job_id')->references('id')->on('jobs');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('status');
             $table->string('address')->nullable();
             $table->string('type_document');
-            $table->string('document')->unique();
+            $table->string('document')->unique()->nullable();
 
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');

@@ -52,6 +52,11 @@ class CompanyController extends Controller
         $job->company_id = $company->id;
         $job->save();
 
+        $job= new Job();
+        $job->name = 'Colaboradores';
+        $job->company_id = $company->id;
+        $job->save();
+
 
         $register_process = [
             'user_id' => $company_people->user_id,

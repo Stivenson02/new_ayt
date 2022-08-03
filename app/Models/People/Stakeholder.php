@@ -42,7 +42,7 @@ class Stakeholder extends Model
         /*
         * 0 =>  active
         * 1 =>  pending
-        * 2 =>  pending
+        * 2 =>  inactive
         * 3 =>  locked
         */
         return [

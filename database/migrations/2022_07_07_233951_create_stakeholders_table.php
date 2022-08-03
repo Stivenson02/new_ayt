@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('phone')->unique();
+            $table->string('email')->nullable();
             $table->string('first_name');
             $table->string('second_name')->nullable();
             $table->string('first_last_name');
@@ -29,7 +30,7 @@ return new class extends Migration
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');
 
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();

@@ -60,6 +60,7 @@ class StakeholderController extends Controller
         $stakeholder->document = $data['document'];
         $stakeholder->city_id = $data['city'];
         $stakeholder->user_id = Auth::user()->id;
+        $stakeholder->email = Auth::user()->email;
         $stakeholder->save();
 
         $stakeholder_job = new StakeholderJob();
@@ -76,12 +77,12 @@ class StakeholderController extends Controller
             'status' => 'in_process',
             'type_url' => 0,
             'last_url' => url()->current(),
-            'next_url' => 'show_registry_collaborator',
+            'next_url' => 'show_register_collaborator',
         ];
 
         $process = ProcessService::registerProcess($register_process);
 
-        return redirect()->route('show_registry_collaborator', ['company' => $company_people->slug, 'process' => $process->slug]);
+        return redirect()->route('show_register_collaborator', ['company' => $company_people->slug, 'process' => $process->slug]);
     }
 
     public function show_collaborator(Request $request)
@@ -98,6 +99,54 @@ class StakeholderController extends Controller
             'cities' => $cities,
             'type_documents' => $stakeholder->type_document(),
         ]);
+    }
+
+    public function create_collaborator($people, Request $request) {
+
+        $request->validate([
+            'first_name' => 'required|min:3',
+            'first_last_name' => 'required|min:3',
+            'phone' => 'required|min:10|unique:stakeholders',
+            'city' => 'required'
+        ]);
+        $data = $request->all();
+
+        $company_people = CompanyPeople::firstWhere('slug', $people);
+        $job = $company_people->company->jobs->firstWhere('name', 'Colaboradores');
+
+        $collaborator= new Stakeholder();
+        $collaborator->slug=slug_token($data['phone']);
+        $collaborator->phone=$data['phone'];
+        $collaborator->email=$data['email'];
+        $collaborator->first_name=$data['first_name'];
+        $collaborator->second_name=$data['second_name'];
+        $collaborator->first_last_name=$data['first_last_name'];
+        $collaborator->second_last_name=$data['second_last_name'];
+        $collaborator->status = $collaborator->status()[1];
+        $collaborator->type_document = $collaborator->type_document()[0];
+        $collaborator->city_id=$data['city'];
+        $collaborator->save();
+
+        $stakeholder_job = new StakeholderJob();
+        $stakeholder_job->job_id = $job->id;
+        $stakeholder_job->company_id = $company_people->company->id;
+        $stakeholder_job->stakeholder_id = $collaborator->id;
+        $stakeholder_job->save();
+
+        $register_process = [
+            'user_id' => $company_people->user_id,
+            'process' => 'register',
+            'table' => CompanyPeople::getTableName(),
+            'slug_table' => $company_people->slug,
+            'status' => 'in_process',
+            'type_url' => 0,
+            'last_url' => url()->current(),
+            'next_url' => 'show_register_welcome'
+        ];
+
+        $process = ProcessService::registerProcess($register_process);
+
+        return redirect()->route('show_register_welcome', ['company' => $company_people->slug, 'process' => $process->slug]);
     }
 
 }

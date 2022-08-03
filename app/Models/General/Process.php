@@ -25,6 +25,18 @@ class Process extends Model
         'slug_table',
     ];
 
+    public function status()
+    {
+        /*
+        * 0 =>  in_process
+        * 1 =>  complete
+        */
+        return [
+            "in_process",
+            "complete"
+        ];
+    }
+
     public function type_url()
     {
         /*

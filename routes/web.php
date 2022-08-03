@@ -35,7 +35,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/stakeholder',  [StakeholderController::class, 'show'])->name('show_registry_stakeholder');
         Route::post('/stakeholder/{people}',  [StakeholderController::class, 'create'])->name('register_stakeholder');
 
-        Route::get('/collaborators',  [StakeholderController::class, 'show_collaborator'])->name('show_registry_collaborator');
+        Route::get('/collaborators',  [StakeholderController::class, 'show_collaborator'])->name('show_register_collaborator');
+        Route::post('/collaborators/{people}',  [StakeholderController::class, 'create_collaborator'])->name('create_collaborator');
+
+        Route::get('/welcome', [GeneralController::class, 'show_register_welcome'])->name('show_register_welcome');
     });
     Route::prefix('foxy')->group(function (){
         Route::get('continue',  [GeneralController::class, 'show_register_continue'])->name('show_register_continue');

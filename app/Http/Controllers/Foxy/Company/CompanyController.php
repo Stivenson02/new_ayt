@@ -53,13 +53,14 @@ class CompanyController extends Controller
         $job->save();
 
         $job= new Job();
-        $job->name = 'Colaboradores';
+        $job->name = 'Colaborador';
         $job->company_id = $company->id;
         $job->save();
 
 
         $register_process = [
             'user_id' => $company_people->user_id,
+            'stakeholder_id' => null,
             'process' => 'register',
             'table' => CompanyPeople::getTableName(),
             'slug_table' => $company_people->slug,
@@ -124,6 +125,7 @@ class CompanyController extends Controller
 
         $register_process = [
             'user_id' => $company_people->user_id,
+            'stakeholder_id' => null,
             'process' => 'register',
             'table' => CompanyPeople::getTableName(),
             'slug_table' => $company_people->slug,

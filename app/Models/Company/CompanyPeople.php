@@ -24,8 +24,8 @@ class CompanyPeople extends Model
     {
         /*
          * 0 =>  super_admin
-         * 1 =>  creator
-         * 3 =>  creator
+         * 1 =>  admin
+         * 2 =>  collaborater
          */
         return [
             "super_admin",

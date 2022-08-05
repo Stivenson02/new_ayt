@@ -18,9 +18,9 @@ class GeneralController extends Controller
             'processes' => $processes
         ]);
     }
+
     public function show_register_welcome()
     {
-
         $user = Auth::user();
         $processes = $user->processes->where("process", "register")->where('table', CompanyPeople::getTableName());
 

@@ -90,7 +90,7 @@
 
         <div class="row justify-content-md-center">
             <div class=" mx-4 col-md-auto">
-                <x-button data-toggle="tooltip" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"
+                <x-button data-toggle="tooltip"
                           class="btn btn-primary  btn-lg shadow-lg  btn_guest mb-3">Agregar Colaborador
                 </x-button>
             </div>

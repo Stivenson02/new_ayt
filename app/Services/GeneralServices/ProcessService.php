@@ -21,6 +21,7 @@ class ProcessService
 
         return Process::updateOrCreate(
             [
+                'stakeholder_id' => $register_process['stakeholder_id'],
                 'user_id' => $register_process['user_id'],
                 'process' => $register_process['process'],
                 'slug_table' => $register_process['slug_table']

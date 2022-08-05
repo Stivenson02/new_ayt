@@ -26,7 +26,9 @@ return new class extends Migration
             $table->string('type_url')->nullable();
             $table->string('last_url')->nullable();
             $table->string('next_url')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('stakeholder_id')->nullable();
+            $table->foreign('stakeholder_id')->references('id')->on('stakeholders');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

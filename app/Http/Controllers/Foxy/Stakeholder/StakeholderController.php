@@ -71,6 +71,7 @@ class StakeholderController extends Controller
 
         $register_process = [
             'user_id' => $company_people->user_id,
+            'stakeholder_id' => null,
             'process' => 'register',
             'table' => CompanyPeople::getTableName(),
             'slug_table' => $company_people->slug,
@@ -92,12 +93,16 @@ class StakeholderController extends Controller
         $company_people = CompanyPeople::firstWhere('slug', $data['company']);
         $cities = City::OfCities('Colombia')->get();
         $stakeholder = new Stakeholder();
+        $company= $company_people->company;
+
+        $collaborator = Stakeholder::OfCompanyStakeholder($company->id)->get();
 
         return view('foxy.register.collaborator', [
             'people' => $company_people,
             'process' => $data['process'],
             'cities' => $cities,
-            'type_documents' => $stakeholder->type_document(),
+            'collaborators' => $collaborator,
+            'status_color' => $stakeholder->status_color(),
         ]);
     }
 
@@ -112,7 +117,7 @@ class StakeholderController extends Controller
         $data = $request->all();
 
         $company_people = CompanyPeople::firstWhere('slug', $people);
-        $job = $company_people->company->jobs->firstWhere('name', 'Colaboradores');
+        $job = $company_people->company->jobs->firstWhere('name', 'Colaborador');
 
         $collaborator= new Stakeholder();
         $collaborator->slug=slug_token($data['phone']);
@@ -135,18 +140,59 @@ class StakeholderController extends Controller
 
         $register_process = [
             'user_id' => $company_people->user_id,
+            'stakeholder_id' => null,
             'process' => 'register',
             'table' => CompanyPeople::getTableName(),
             'slug_table' => $company_people->slug,
             'status' => 'in_process',
             'type_url' => 0,
             'last_url' => url()->current(),
-            'next_url' => 'show_register_welcome'
+            'next_url' => 'show_register_collaborator'
         ];
 
         $process = ProcessService::registerProcess($register_process);
 
-        return redirect()->route('show_register_welcome', ['company' => $company_people->slug, 'process' => $process->slug]);
+        $new_company_people = new CompanyPeople();
+        $new_company_people->slug = slug_token($collaborator->phone . $company_people->company->id );
+        $new_company_people->company_id = $company_people->company->id;
+        $new_company_people->status = $new_company_people->status()[3];
+        $new_company_people->type_user = $new_company_people->type_user()[2];
+        $new_company_people->stakeholder_id = $collaborator->id;
+        $new_company_people->save();
+
+        $register_process = [
+            'user_id' => null,
+            'stakeholder_id' =>$new_company_people->stakeholder_id,
+            'process' => 'register',
+            'table' => CompanyPeople::getTableName(),
+            'slug_table' => $company_people->slug,
+            'status' => 'in_process',
+            'type_url' => 0,
+            'last_url' => url()->current(),
+            'next_url' => 'show_register_collaborator'
+        ];
+
+        ProcessService::registerProcess($register_process);
+
+        return redirect()->route('show_register_collaborator', ['company' => $company_people->slug, 'process' => $process->slug]);
     }
+
+    public function show_stakeholder_collaborator(Request $request)
+    {
+        $data= $request->all();
+
+        $company_people = CompanyPeople::firstWhere('slug', $data['company']);
+        $stakeholder = new Stakeholder();
+
+        return view('foxy.register.stakeholder_collaborator', [
+            'people' => $company_people,
+            'process' => $data['process'],
+            'type_documents' => $stakeholder->type_document(),
+        ]);
+    }
+
+
+
+
 
 }

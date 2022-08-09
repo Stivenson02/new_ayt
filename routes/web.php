@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Foxy\Company\CompanyController;
+use App\Http\Controllers\Foxy\General\DashboardController;
 use App\Http\Controllers\Foxy\General\GeneralController;
 use App\Http\Controllers\Foxy\Stakeholder\StakeholderController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['v_company']], function (){
-        Route::view('/dashboard', 'dashboard');
+        Route::get('/dashboard',  [DashboardController::class, 'index']);
         Route::view('/profile', 'dashboard');
     });
     Route::prefix('register')->group(function (){

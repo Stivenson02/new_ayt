@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/collaborators/{people}',  [StakeholderController::class, 'create_collaborator'])->name('create_collaborator');
 
         Route::get('/welcome', [GeneralController::class, 'show_register_welcome'])->name('show_register_welcome');
+        Route::get('/finish', [GeneralController::class, 'finish_register_welcome'])->name('finish_register_welcome');
 
         Route::get('/stakeholder_collaborators', [StakeholderController::class, 'show_stakeholder_collaborator'])->name('show_register_stakeholder_collaborators');
     });

@@ -62,7 +62,7 @@
         <div class="card">
             <div class="row justify-content-md-center">
                 <div class="m-3 col-md-auto">
-                    <a href="{{ route('show_register_welcome') }}"
+                    <a href="{{ route('show_register_welcome',['people' => $people['slug'], 'process' => $process] ) }}"
                        class="btn btn-success  btn-lg shadow-lg  btn_guest ">Continuar</a>
                 </div>
             </div>

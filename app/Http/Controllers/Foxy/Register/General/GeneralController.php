@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Foxy\General;
+namespace App\Http\Controllers\Foxy\Register\General;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company\CompanyPeople;
@@ -26,7 +26,6 @@ class GeneralController extends Controller
         $data= $request;
 
         return view('foxy.general.show_welcome', [
-            'process' => $data['process'],
             'people' => $data['people']
         ]);
     }

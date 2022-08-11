@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Foxy\Company;
+namespace App\Http\Controllers\Foxy\Register\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company\Company;
@@ -11,7 +11,6 @@ use App\Services\GeneralServices\ProcessService;
 use App\Services\GeneralServices\StorageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class CompanyController extends Controller
 {

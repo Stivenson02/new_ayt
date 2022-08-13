@@ -1,12 +1,18 @@
 <?php
 
+
 use App\Http\Controllers\Foxy\Register\Company\CompanyController;
 use App\Http\Controllers\Foxy\Register\General\GeneralController;
+use App\Http\Controllers\Foxy\Register\Stakeholder\CollaboratorController;
 use App\Http\Controllers\Foxy\Register\Stakeholder\StakeholderController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
     Route::prefix('register')->group(function (){
+        Route::get('/collaborator_welcome',  [CollaboratorController::class, 'show_registry_collaborator']);
+        Route::get('/collaborator_integration',  [CollaboratorController::class, 'collaborator_integration'])->name('show_registry_collaborator_integration');
+        Route::get('/collaborator_stakeholder',  [CollaboratorController::class, 'collaborator_stakeholder'])->name('show_registry_collaborator_stakeholder');
+
         Route::get('/company',  [CompanyController::class, 'show']);
         Route::post('/company',  [CompanyController::class, 'create'])->name('register_company');
 

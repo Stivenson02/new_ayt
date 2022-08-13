@@ -23,6 +23,7 @@ class Process extends Model
         'user_id',
         'table',
         'slug_table',
+        'stakeholder_id',
     ];
 
     public function status()

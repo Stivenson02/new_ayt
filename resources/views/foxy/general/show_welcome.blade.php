@@ -28,7 +28,7 @@
         <div class="card">
             <div class="row justify-content-md-center">
                 <div class="m-3 col-md-auto">
-                    <a href="{{ route('finish_register_welcome',['people' => $people, 'process' => $process] ) }}"
+                    <a href="{{ route('finish_register_welcome',['people' => $people] ) }}"
                        class="btn btn-success  btn-lg shadow-lg  btn_guest ">Finalizar Registro</a>
                 </div>
             </div>

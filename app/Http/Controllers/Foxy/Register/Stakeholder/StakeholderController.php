@@ -7,7 +7,6 @@ use App\Models\Company\CompanyPeople;
 use App\Models\Map\City;
 use App\Models\Models\People\StakeholderJob;
 use App\Models\People\Stakeholder;
-use App\Services\GeneralServices\CollaboratorService;
 use App\Services\GeneralServices\ProcessService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -112,23 +111,9 @@ class StakeholderController extends Controller
             'phone' => 'required|min:10|unique:stakeholders',
             'city' => 'required'
         ]);
+
         $data = $request->all();
-
-        list($company_people, $new_company_people) = $this->add_collaborators($people, $data);
-
-        $register_process = [
-            'user_id' => null,
-            'stakeholder_id' =>$new_company_people->stakeholder_id,
-            'process' => 'register',
-            'table' => CompanyPeople::getTableName(),
-            'slug_table' => $company_people->slug,
-            'status' => 'in_process',
-            'type_url' => 0,
-            'last_url' => url()->current(),
-            'next_url' => 'show_register_collaborator'
-        ];
-
-        ProcessService::registerProcess($register_process);
+        $this->add_collaborators($people, $data);
 
         return back()->withInput();
     }

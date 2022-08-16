@@ -59,7 +59,7 @@ class CompanyController extends Controller
 
         $register_process = [
             'user_id' => $company_people->user_id,
-            'stakeholder_id' => null,
+            'stakeholder_id' => $company_people->stakeholder_id,
             'process' => 'register',
             'table' => CompanyPeople::getTableName(),
             'slug_table' => $company_people->slug,
@@ -124,7 +124,7 @@ class CompanyController extends Controller
 
         $register_process = [
             'user_id' => $company_people->user_id,
-            'stakeholder_id' => null,
+            'stakeholder_id' => $company_people->stakeholder_id,
             'process' => 'register',
             'table' => CompanyPeople::getTableName(),
             'slug_table' => $company_people->slug,

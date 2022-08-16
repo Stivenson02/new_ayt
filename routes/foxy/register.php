@@ -12,6 +12,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/collaborator_welcome',  [CollaboratorController::class, 'show_registry_collaborator']);
         Route::get('/collaborator_integration',  [CollaboratorController::class, 'collaborator_integration'])->name('show_registry_collaborator_integration');
         Route::get('/collaborator_stakeholder',  [CollaboratorController::class, 'collaborator_stakeholder'])->name('show_registry_collaborator_stakeholder');
+        Route::post('/collaborator_stakeholder/{people}',  [CollaboratorController::class, 'update_collaborator'])->name('update_register_update_collaborator');
 
         Route::get('/company',  [CompanyController::class, 'show']);
         Route::post('/company',  [CompanyController::class, 'create'])->name('register_company');

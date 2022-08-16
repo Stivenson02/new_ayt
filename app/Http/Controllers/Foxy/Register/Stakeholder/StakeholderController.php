@@ -67,9 +67,12 @@ class StakeholderController extends Controller
         $stakeholder_job->stakeholder_id = $stakeholder->id;
         $stakeholder_job->save();
 
+        $company_people->stakeholder_id=$stakeholder->id;
+        $company_people->save();
+
         $register_process = [
             'user_id' => $company_people->user_id,
-            'stakeholder_id' => null,
+            'stakeholder_id' => $company_people->stakeholder_id,
             'process' => 'register',
             'table' => CompanyPeople::getTableName(),
             'slug_table' => $company_people->slug,
@@ -79,7 +82,8 @@ class StakeholderController extends Controller
             'next_url' => 'show_register_collaborator',
         ];
 
-        $process = ProcessService::registerProcess($register_process);
+        $process = ProcessService::registerProcessUser($register_process);
+
 
         return redirect()->route('show_register_collaborator', ['company' => $company_people->slug, 'process' => $process->slug]);
     }

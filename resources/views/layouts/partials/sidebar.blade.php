@@ -2,8 +2,10 @@
 
     @if ($type_user == 'super_admin')
         <x-maz-sidebar-item name="Colaboradores" :link="route('show_home_collaborators')"
-                            icon="bi bi-grid-fill"></x-maz-sidebar-item>
+                            icon="bi bi-people-fill"></x-maz-sidebar-item>
     @endif
+        <x-maz-sidebar-item name="Productos" :link="route('show_home_products')"
+                            icon="bi bi-box-seam"></x-maz-sidebar-item>
 </x-maz-sidebar>
 
 

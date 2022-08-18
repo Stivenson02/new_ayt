@@ -14,8 +14,9 @@ class DashboardController extends Controller
         $user=Auth::user();
         $data_people=$user->peoples->first();
 
+
         return view('dashboard',[
-            'type_user'=> $data_people['type_user']
+            'company_people'=> $data_people
         ]);
     }
 

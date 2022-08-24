@@ -568,6 +568,15 @@ progress {
   max-width: 100%;
   height: auto;
 }
+.img-fluid-rino {
+    max-width: 150%;
+    height: auto;
+}
+
+.img-fluid-120 {
+    max-width: 120%;
+    height: auto;
+}
 
 .img-thumbnail {
   padding: 0.25rem;

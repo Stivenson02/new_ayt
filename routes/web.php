@@ -18,7 +18,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('collaborators', [StakeholderController::class, 'show_collaborators'])->name('show_home_collaborators');
     });
     Route::prefix('rino')->group(function () {
-        Route::get('products', [ProductController::class, 'show_home_products'])->name('show_home_products');
+        Route::get('products/{people}', [ProductController::class, 'show_home_products'])->name('show_home_products');
     });
 });
 

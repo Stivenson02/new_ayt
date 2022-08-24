@@ -53,7 +53,7 @@
             <div class="col col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <label for="email">Email</label>
-                    <x-input id="email" class="form-control form-control-xl" type="text" name="email"
+                    <x-input id="email" class="form-control form-control-xl" type="email" name="email"
                              :value="old('email')" autocomplete="off"
                              autofocus/>
                     <div class="form-control-icon mt-2">

@@ -15,7 +15,7 @@ class DashboardController extends Controller
         $data_people=$user->peoples->first();
 
 
-        return view('dashboard',[
+        return view('dashboard.index',[
             'company_people'=> $data_people
         ]);
     }

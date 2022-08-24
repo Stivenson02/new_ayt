@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-@props(['type_user'])
+@props(['menu','type_user'=>'', 'people'=>''])
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">

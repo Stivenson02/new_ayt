@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function show_home_products($people)
     {
-        $people=CompanyPeople::firstWhere('slug', $people);
+        $people = CompanyPeople::firstWhere('slug', $people);
         return view('rino.show.show', [
             'products' => Product::where('company_id', $people->company->id)->paginate(15),
             'people' => $people
@@ -24,7 +24,7 @@ class ProductController extends Controller
     {
         $company_people = CompanyPeople::firstWhere('slug', $people);
 
-        $product_types=ProductType::where('company_id', null)
+        $product_types = ProductType::where('company_id', null)
             ->orWhere('company_id', $company_people->company_id)
             ->get();
 
@@ -36,7 +36,18 @@ class ProductController extends Controller
 
     public function create_products(Request $request)
     {
+        $request->validate([
+            'product_name' => 'required',
+            'img_product' => 'required',
+            'type_product' => 'required',
+        ]);
+        $data = $request->all();
+        if ($data['type_product'] == "0") {
+            $request->validate([
+                'other_type' => 'required',
+            ]);
+        }
+        /* $data['type_product'] = ucfirst(strtolower($data['type_product']));*/
 
-        dd($request->all());
     }
 }

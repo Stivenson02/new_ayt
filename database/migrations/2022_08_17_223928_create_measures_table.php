@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('measures', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
             $table->string('clasificate_measure');
             $table->string('type_measure');
             $table->string('measure_name');
-            $table->double('measure');
-            $table->double('equivalent_measure')->nullable();
+            $table->string('measure');
+            $table->string('equivalent_measure')->nullable();
             $table->integer('equivalent_measure_id')->nullable();
 
             $table->unsignedBigInteger('product_type_id');

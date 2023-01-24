@@ -41,11 +41,36 @@
                 </div>
             </div>
         </div>
+    @else
+        <div class="card">
+            <div class="row justify-content-md-center px-3">
+                <div class="m-2">
+                    <a href="{{ route('show_rino_products_create',['people' => $people['slug']] ) }}"
+                       class="btn btn-success btn-sg btn_guest_two ">Registrar Productos</a>
+                </div>
+            </div>
+        </div>
     @endif
 
     <div class="container">
         @foreach ($products as $product)
-            {{ $product->id }}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">  {{ $product->name }}</h5>
+                    <div class="card-subtitle mb-2 text-muted">
+                        <div class="container d-block mt-5">
+                            @if ($product->product_imgs->count() != 0)
+                                <img class="thumb-post"
+                                     src="{{ asset($product->product_imgs->where('order',0)->first()->file_path) }}">
+                            @endif
+                        </div>
+                    </div>
+                    <p class="card-text">{{$product->description}}</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+
         @endforeach
     </div>
     {{ $products->links() }}

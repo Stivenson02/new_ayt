@@ -9,3 +9,7 @@
 .btn_guest_two {
   background-color: #46A7D4;
 }
+.btn_guest_two:hover {
+    background-color: #4289EB;
+}
+

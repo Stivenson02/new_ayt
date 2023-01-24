@@ -12,6 +12,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'description',
         'slug',
         'nit',
         'company_id',
@@ -34,5 +35,10 @@ class Product extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function product_imgs()
+    {
+        return $this->hasMany(ProductImg::class)->orderBy('order');
     }
 }

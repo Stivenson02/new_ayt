@@ -54,11 +54,11 @@
 
     <div class="container">
         @foreach ($products as $product)
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 14rem;">
                 <div class="card-body">
-                    <h5 class="card-title">  {{ $product->name }}</h5>
+                    <h5 class="card-title text-center">  {{ $product->name }}</h5>
                     <div class="card-subtitle mb-2 text-muted">
-                        <div class="container d-block mt-5">
+                        <div class="container d-block mt-2">
                             @if ($product->product_imgs->count() != 0)
                                 <img class="thumb-post"
                                      src="{{ asset($product->product_imgs->where('order',0)->first()->file_path) }}">
@@ -66,6 +66,9 @@
                         </div>
                     </div>
                     <p class="card-text">{{$product->description}}</p>
+                    <div><strong>code_i</strong>: {{$product->nit_intern}}</div>
+                    <div><strong>code_e</strong>: {{$product->nit_extern}}</div>
+                    <br>
                     <a href="#" class="card-link">Card link</a>
                     <a href="#" class="card-link">Another link</a>
                 </div>

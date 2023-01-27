@@ -4,7 +4,7 @@
           enctype="multipart/form-data">
         @csrf
         <div class="row mx-4 mt-2">
-            <div class="col col-xs-12 col-sm-12 col-md-4">
+            <div class="col col-xs-12 col-sm-12 col-md-4 offset-md-2">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <label for="type_product">Tipo de Producto</label>
                     <select id="type_product" class="form-control form-control-xl mt-2" name="type_product"
@@ -21,9 +21,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-xs-12 col-sm-12 col-md-8">
+            <div class="col col-xs-12 col-sm-12 col-md-4">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <label for="other_type">Si escogiste Otro, escribe en este espacio que otro tipo manejas</label>
+                    <label for="other_type">Si escogiste Otro, indica cual</label>
                     <x-input id="other_type" class="form-control form-control-xl mt-2 " type="text" name="other_type"
                              :value="old('email')" autocomplete="off"
                              autofocus/>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row mx-4 mt-2">
-            <div class="col col-xs-12 col-sm-12 col-md-3">
+            <div class="col col-xs-12 col-sm-12 col-md-3 offset-md-2">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <label for="product_name">Codigo</label>
                     <x-input id="product_nit_extern" class="form-control form-control-xl mt-2 " type="text"
@@ -58,21 +58,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-xs-12 col-sm-12 col-md-4">
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <label for="type_company">Foto o img de tu producto</label>
-                    <x-input id="img_product" class="form-control form-control-xl mt-2" type="file" name="img_product"
-                             accept="image/png, image/jpg, image/jpeg"
-                             autofocus/>
-                    <div class="form-control-icon mt-3">
-                        <i class="bi bi-card-checklist"></i>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="row mx-4 mt-2">
-            <div class="col col-xs-12 col-sm-12 col-md-12">
+            <div class="col col-xs-12 col-sm-8 offset-md-2">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <label for="product_description">Descripcion</label>
                     <textarea id="product_nit_extern" class="form-control form-control-xl mt-2 " type="text"

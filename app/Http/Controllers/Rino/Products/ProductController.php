@@ -41,7 +41,6 @@ class ProductController extends Controller
     {
         $request->validate([
             'product_name' => 'required',
-            'img_product' => 'required',
             'type_product' => 'required',
         ]);
         $data = $request->all();
@@ -72,7 +71,7 @@ class ProductController extends Controller
         $product->status = $product->status()[0];
         $product->save();
 
-        $img = StorageService::created($request->img_product, $company->slug . '/products');
+  /*      $img = StorageService::created($request->img_product, $company->slug . '/products');
 
         ProductImg::updateOrCreate(
             [
@@ -85,7 +84,7 @@ class ProductController extends Controller
                 'file_path' => $img['image'],
                 'file_extension' => 'IMG',
             ]
-        );
+        );*/
 
         return redirect()->route('show_rino_products_create', ['people' => $data['people']]);
 

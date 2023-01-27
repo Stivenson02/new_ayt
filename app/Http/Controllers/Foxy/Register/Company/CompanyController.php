@@ -46,12 +46,12 @@ class CompanyController extends Controller
         $company_people->type_user = $company_people->type_user()[0];
         $company_people->save();
 
-        $job= new Job();
+        $job = new Job();
         $job->name = 'Administrador';
         $job->company_id = $company->id;
         $job->save();
 
-        $job= new Job();
+        $job = new Job();
         $job->name = 'Colaborador';
         $job->company_id = $company->id;
         $job->save();
@@ -90,37 +90,41 @@ class CompanyController extends Controller
 
     public function update($people, Request $request)
     {
+        /*
         $request->validate([
-            'img_logo' => 'required'
-        ]);
+                    'img_logo' => 'required'
+                ]);
+        */
         $data = $request->all();
+        $company_people = CompanyPeople::firstWhere('slug', $people);
+        $company = $company_people->company;
+
         if ($data['document']) {
             $request->validate([
                 'document' => 'max:255',
                 'verification' => 'required|max:1',
             ]);
+            $company->document = $data['document'] . '-' . $data['verification'];
+            $company->save();
         }
 
-        $company_people = CompanyPeople::firstWhere('slug', $people);
-        $company = $company_people->company;
+        /* if (!$company->files->where('type_file')->count() == 0) {
+             StorageService::delete($company->slug . '/' . $company->files->where('type_file')->first()->file);
+         }
 
-        if (!$company->files->where('type_file')->count() == 0) {
-            StorageService::delete($company->slug . '/' . $company->files->where('type_file')->first()->file);
-        }
+         $img = StorageService::created($request->img_logo, $company->slug);
 
-        $img = StorageService::created($request->img_logo, $company->slug);
-
-        CompanyFile::updateOrCreate(
-            [
-                'company_id' => $company->id,
-                'type_file' => 'company_logo',
-            ],
-            [
-                'file' => $img['image_name'],
-                'file_path' => $img['image'],
-                'file_extension' => 'IMG'
-            ]
-        );
+         CompanyFile::updateOrCreate(
+             [
+                 'company_id' => $company->id,
+                 'type_file' => 'company_logo',
+             ],
+             [
+                 'file' => $img['image_name'],
+                 'file_path' => $img['image'],
+                 'file_extension' => 'IMG'
+             ]
+         );*/
 
         $register_process = [
             'user_id' => $company_people->user_id,
@@ -137,6 +141,5 @@ class CompanyController extends Controller
         $process = ProcessService::registerProcess($register_process);
 
         return redirect()->route('show_registry_stakeholder', ['company' => $company_people->slug, 'process' => $process->slug]);
-
     }
 }

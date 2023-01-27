@@ -3,7 +3,7 @@
     <form method="post" action="{{ route('register_company_complements', ['people' => $people->slug]) }}" enctype="multipart/form-data">
         @csrf
         <div class="row mx-4 mt-2">
-            <div class="col col-sm-3">
+            <div class="col col-sm-3 offset-md-1">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <label for="type_company">Nombre</label>
                     <span class="form-control form-control-xl">{{$company->name}}</span>
@@ -33,7 +33,7 @@
                              maxlength="1"/>
                 </div>
             </div>
-            <div class="col col-sm-3">
+<!--            <div class="col col-sm-3">
                 <div class="form-group position-relative has-icon-left mb-2">
                     <label for="type_company">Logo</label>
                     <x-input id="img_logo" class="form-control form-control-xl" type="file" name="img_logo"
@@ -41,7 +41,7 @@
                               autofocus/>
 
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="row justify-content-md-center">
             <div class="col-md-auto">

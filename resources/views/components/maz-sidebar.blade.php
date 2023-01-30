@@ -18,6 +18,5 @@
                 {{ $slot ?? '' }}
             </ul>
         </div>
-        <button class="sidebar-toggler btn x"><i class="bi bi-x"></i></button>
     </div>
 </div>

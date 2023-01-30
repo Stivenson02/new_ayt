@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm">
                     <div class="container d-block mt-2">
-                        <img class="img-fluid img-thumbnail-bg thumb-post"
+                        <img class="img-fluid img-thumbnail-bg "
                              src="{{ asset('assets/images/foxy/foxy1-1.png') }}">
                     </div>
                 </div>

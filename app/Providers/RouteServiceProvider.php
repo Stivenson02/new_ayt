@@ -39,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/foxy/register.php'));
             Route::middleware('web')
                 ->group(base_path('routes/rino/products.php'));
+            Route::middleware('web')
+                ->group(base_path('routes/elpha/services.php'));
         });
     }
 

@@ -581,6 +581,21 @@ progress {
     height: auto;
 }
 
+
+.img-fluid-elpha {
+    max-width: 200%;
+    height: auto;
+    width: 160%;
+}
+
+@media only screen and (max-width: 600px) {
+    .img-fluid-elpha {
+        height: auto;
+        width: 70%;
+        object-position: center;
+    }
+}
+
 .img-fluid-120 {
     max-width: 120%;
     height: auto;

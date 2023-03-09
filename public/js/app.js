@@ -7112,6 +7112,14 @@ var application = stimulus__WEBPACK_IMPORTED_MODULE_1__.Application.start();
 var context = __webpack_require__("./resources/js/controllers sync recursive \\.js$");
 
 application.load((0,stimulus_webpack_helpers__WEBPACK_IMPORTED_MODULE_2__.definitionsFromContext)(context));
+/*import {createApp} from "vue";
+import HomeComponent from "./components/HomeComponent";
+
+const app = createApp({})
+
+app.component('HomeComponent', HomeComponent)
+
+app.mount('#app')*/
 
 /***/ }),
 

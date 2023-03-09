@@ -3,10 +3,10 @@ import { createApp } from "vue";
 const app = createApp({})
 import PrimeVue from 'primevue/config';
 
-import ListComponent from "./componets/List.vue";
+import ButtonCloseComponent from "./componets/ButtonClose.vue";
 
 
-app.component('ListComponent', ListComponent)
+app.component('ButtonCloseComponent', ButtonCloseComponent)
 
 app.use(PrimeVue);
 app.mount('#app')

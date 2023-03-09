@@ -9,21 +9,21 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="container d-block mt-5">
-                        <img class="img-fluid-elpha img-thumbnail-bg"
+                        <img class="img-fluid-elpha img-thumbnail-bg mx-5"
                              src="{{ asset('assets/images/elpha/elpha1-1.png') }}">
                     </div>
                 </div>
                 <div class="col-sm-9 mx-4">
-                    <div class="card-header">
+                    <div class="card-header text-center">
                         <h4 class="card-title">Registro de Servicios</h4>
                     </div>
-                    <div class="card-body">
-                        <p>
+                    <div class="card-body text-center">
+                        <p class="mx-3">
                             Hola soy <b>Elpha,</b> la encargada de gestionar y administrar los servicios
                             de tu negocio. En este espacio puedes escoger uno de los tres servicios que desees registrar,
                             podrás editar, o descartar cada uno de estos en el historial.
                         </p>
-                        <p>
+                        <p class="mx-3">
                             Por seguridad nada se podrá eliminar, solo el administrador podrá descartar de los informes
                             los servicios que queden en estado descartado.
                         </p>
@@ -35,9 +35,9 @@
     </div>
     <div class="card">
         <div class="row justify-content-md-center">
-            <div class="m-3 col-md-auto">
-                <a href="{{ route('show_rino_products_create',['people' => $people['slug']] ) }}"
-                   class="btn btn-success  btn-lg shadow-lg  btn_guest ">Registrar Productos</a>
+            <div class="text-center m-3 col-ms-auto">
+                <a href="{{ route('show_elpha_options_services',['people' => $people['slug']] ) }}"
+                   class="btn btn-success  btn-lg shadow-lg  btn_guest ">Registrar Servicios</a>
             </div>
         </div>
     </div>

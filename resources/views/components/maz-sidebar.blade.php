@@ -5,10 +5,11 @@
         <div class="sidebar-header">
             <div class="mx-10 d-flex justify-content-between">
                 <div class="logo">
-                    <a href="{{ $href }}"><img style="width: 100%; height: auto;" src="{{ $logo }}" alt="Logo" srcset=""></a>
+                    <a href="{{ $href }}"><img style="width: 100%; height: auto;" src="{{ $logo }}" alt="Logo"
+                                               srcset=""></a>
                 </div>
                 <div class="toggler">
-                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                    <a onclick="myFunction()" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                 </div>
             </div>
         </div>
@@ -20,3 +21,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    function myFunction() {
+        document.getElementById("sidebar").classList.remove('active');
+        document.getElementById("sidebar").classList.add('inactive');
+    }
+</script>

@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             MapSeeder::class,
             ProductTypesSeeder::class,
-            MeasuresSeeder::class
+            MeasuresSeeder::class,
+            MovementTypesSeeder::class,
+            MovementNamesSeeder::class,
+            PaymentMethodsSeeder::class
         ]);
     }
 }
